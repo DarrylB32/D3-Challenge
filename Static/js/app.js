@@ -21,7 +21,7 @@ var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Import Data
-d3.csv("assets/data/data.csv").then(function(stateData) {
+d3.csv("data/data.csv").then(function(stateData) {
     console.log(stateData)
 
     // Step 1: Parse Data/Cast as numbers
@@ -92,11 +92,11 @@ d3.csv("assets/data/data.csv").then(function(stateData) {
         return (`${d.state}<br>Poverty: ${d.poverty}<br>Hits: ${d.healthcare}`)
       });
 
-    // Step 7: Create tooltip in the chart
+    // Step 8: Create tooltip in the chart
     // ==============================
     circlesGroup.call(toolTip);
 
-    // Step 8: Create event listeners to display and hide the tooltip
+    // Step 9: Create event listeners to display and hide the tooltip
     // ==============================
     circlesGroup.on("click", function(data) {
       toolTip.show(data, this);
