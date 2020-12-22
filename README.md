@@ -1,5 +1,5 @@
 # D3-Health_Risk_vs_Demogrpahics
-By utilizing *d3.js*, this html page visualizes the health risks facing particular demographics based on [2014ACS 1-year estimates](static/data/data.csv). The current data set includes data on rates of income, obesity, poverty, etc. by state. The page displays scatter plot for Poverty vs Healthcare. Each state should be represented with circle elements with state abbreviations  using an *app.js*.
+By utilizing *d3.js*, this html page visualizes the health risks facing particular demographics based on [2014ACS 1-year estimates](Static/data/data.csv). The current data set includes data on rates of income, obesity, poverty, etc. by state. The page displays scatter plot for Poverty vs Healthcare. Each state should be represented with circle elements with state abbreviations  using an *app.js*.
 
 ### Tech Stack
 * JavaScript
