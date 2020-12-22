@@ -10,7 +10,7 @@ By utilizing *d3.js*, this html page visualizes the health risks facing particul
 * Clone the repository: git clone https://github.com/DarrylB32/D3-Health_Risk_vs_Demogrpahics 
 *  In command: python -m http.server 
 *  In web browser: http://localhost:8000/
-* ![Screenshot](ReadMe_Resources/Screenshot.png)
+![Screenshot](ReadMe_Resources/Screenshot.png)
  
 ### Additional Notes
 Transitions will be added to the graphs such that the user can choose between different graphs and the plots will rearrange themselves.
