@@ -7,7 +7,7 @@ By utilizing *d3.js*, this html page visualizes the health risks facing particul
 * HTML
 
 ### User Instructions
-* Clone the repository: git clone https://github.com/DarrylB32/D3-Health_Risk_vs_Demogrpahics 
+* Clone the repository: git clone https://github.com/DarrylB32/D3-Health_Risk_vs_Demogrpahics.git  
 *  In command: python -m http.server 
 *  In web browser: http://localhost:8000/
 ![Screenshot](ReadMe_Resources/Screenshot.png)

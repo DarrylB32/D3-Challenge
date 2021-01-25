@@ -1,3 +1,4 @@
+// Create variables for dimension
 var svgWidth = 960;
 var svgHeight = 500;
 
@@ -11,7 +12,7 @@ var margin = {
 var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
-// Create an SVG wrapper, append an SVG group that will hold our chart, and shift the latter by left and top margins.
+// Create an SVG wrapper, append an SVG group that will hold the chart, and shift by left and top margins.
 var svg = d3.select("#scatter")
   .append("svg")
   .attr("width", svgWidth)
@@ -24,14 +25,14 @@ var chartGroup = svg.append("g")
 d3.csv("data/data.csv").then(function(stateData) {
     console.log(stateData)
 
-    // Step 1: Parse Data/Cast as numbers
+    // Parse Data/Cast as numbers
     // ==============================
     stateData.forEach(function(data) {
       data.poverty = +data.poverty;
       data.healthcare=+data.healthcare;
     });
 
-    // Step 2: Create scale functions
+    // Create scale functions
     // ==============================
     var xLinearScale = d3.scaleLinear()
       .domain([d3.min(stateData, d => d.poverty)-2, d3.max(stateData, d => d.poverty)+2])
@@ -46,12 +47,12 @@ d3.csv("data/data.csv").then(function(stateData) {
       console.log(`Healthcare Min: ${d3.min(stateData, d => d.healthcare)}`);
       console.log(`Healthcare Max: ${d3.max(stateData, d => d.healthcare)}`);
 
-    // Step 3: Create axis functions
+    // Create axis functions
     // ==============================
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
 
-    // Step 4: Append Axes to the chart
+    // Append Axes to the chart
     // ==============================
     chartGroup.append("g")
       .attr("transform", `translate(0, ${height})`)
@@ -60,8 +61,8 @@ d3.csv("data/data.csv").then(function(stateData) {
     chartGroup.append("g")
       .call(leftAxis);
 
-     // // Step 5: Create Circles
-    // // ==============================
+     // Create Circles
+    // ==============================
     var circlesGroup = chartGroup
     .selectAll("circle")
     .data(stateData)
@@ -72,8 +73,8 @@ d3.csv("data/data.csv").then(function(stateData) {
     .attr("r", 10)
     .attr("class", "stateCircle");
     
-     // // Step 6: Create Sate Text
-    // // ==============================
+     // Create Sate Text
+    // ==============================
     chartGroup
     .selectAll("states")
     .data(stateData)
@@ -84,7 +85,7 @@ d3.csv("data/data.csv").then(function(stateData) {
     .attr("class", "stateText");
 
 
-    // Step 7: Initialize tool tip
+    // Initialize tool tip
     // ==============================
     var toolTip = d3.tip()
       .attr("class", "d3-tip")
@@ -92,11 +93,11 @@ d3.csv("data/data.csv").then(function(stateData) {
         return (`${d.state}<br>Poverty: ${d.poverty}<br>Hits: ${d.healthcare}`)
       });
 
-    // Step 8: Create tooltip in the chart
+    // Create tooltip in the chart
     // ==============================
     circlesGroup.call(toolTip);
 
-    // Step 9: Create event listeners to display and hide the tooltip
+    // Create event listeners to display and hide the tooltip
     // ==============================
     circlesGroup.on("click", function(data) {
       toolTip.show(data, this);
